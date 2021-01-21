@@ -1,17 +1,15 @@
 const router = require('express').Router();
+const validarAdmin = require('../middlewares/validarAdministrador');
 
 router.route('/')
-    .get((req, res) => {
+    .get(validarAdmin, (req, res) => {
         console.log(req.user.usuario.esAdministrador); // Si es cero es un usuario normal si es 1 es un administrador
         res.json('Hola desde get de usuarios');
     })
-    .post((req, res) => {
-        res.json('Hola desde POST de usuarios');
-    })
-    .put((req, res) => {
+    .put(validarAdmin, (req, res) => {
         res.json('Hola desde PUT de usuarios');
     })
-    .delete((req, res) => {
+    .delete(validarAdmin, (req, res) => {
         res.json('Hola desde delete de usuarios');
     });
 
