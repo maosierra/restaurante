@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 router.route('/')
     .get((req, res) => {
+        console.log(req.user.usuario.esAdministrador); // Si es cero es un usuario normal si es 1 es un administrador
         res.json('Hola desde get de usuarios');
     })
     .post((req, res) => {
