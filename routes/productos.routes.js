@@ -1,16 +1,17 @@
 const router = require('express').Router();
+const validarAdministrador = require('../middlewares/validarAdministrador');
 
 router.route('/')
     .get((req, res) => {
         res.json('Hola desde get de productos');
     })
-    .post((req, res) => {
+    .post(validarAdministrador, (req, res) => {
         res.json('Hola desde POST de productos');
     })
-    .put((req, res) => {
+    .put(validarAdministrador, (req, res) => {
         res.json('Hola desde PUT de productos');
     })
-    .delete((req, res) => {
+    .delete(validarAdministrador, (req, res) => {
         res.json('Hola desde delete de productos');
     });
 
