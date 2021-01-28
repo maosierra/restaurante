@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "b8536478-dc50-4ea5-af47-a57802ca921e",
+		"name": "Restaurante",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_usuario\": \"usuariotest\",\r\n    \"contrasena\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Endpoint para loguearse al sistema y obtener un token"
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_usuario\": \"usuariotest\",\r\n    \"nombre_apellido\": \"Nombre Apellido test\",\r\n    \"email\": \"test@email.com\",\r\n    \"direccion_envio\": \"Calle 4321\",\r\n    \"contrasena\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/registrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registrar"
+					]
+				},
+				"description": "Endpoint para registrar un usuario al sistema"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Im5vbWJyZV9hcGVsbGlkbyI6Ik5vbWJyZSBBcGVsbGlkbyB0ZXN0IiwiZW1haWwiOiJ0ZXN0QGVtYWlsLmNvbSIsImRpcmVjY2lvbl9lbnZpbyI6IkNhbGxlIDQzMjEiLCJlc0FkbWluaXN0cmFkb3IiOjF9LCJpYXQiOjE2MTE2MjI2MDd9.9FAYSYL32hhakM5uRzlpSyeQuFeqqlzQT468H_IMTOk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_usuario\": \"usuariotest\",\r\n    \"nombre_apellido\": \"Acamica usuario\",\r\n    \"email\": \"test@email.com\",\r\n    \"direccion_envio\": \"Calle 4321\",\r\n    \"telefono\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/usuarios?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los pedidos del sistema",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Im5vbWJyZV9hcGVsbGlkbyI6Ik5vbWJyZSBBcGVsbGlkbyB0ZXN0IiwiZW1haWwiOiJ0ZXN0QGVtYWlsLmNvbSIsImRpcmVjY2lvbl9lbnZpbyI6IkNhbGxlIDQzMjEiLCJlc0FkbWluaXN0cmFkb3IiOjF9LCJpYXQiOjE2MTE2MjI2MDd9.9FAYSYL32hhakM5uRzlpSyeQuFeqqlzQT468H_IMTOk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear pedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Im5vbWJyZV9hcGVsbGlkbyI6Ik5vbWJyZSBBcGVsbGlkbyB0ZXN0IiwiZW1haWwiOiJ0ZXN0QGVtYWlsLmNvbSIsImRpcmVjY2lvbl9lbnZpbyI6IkNhbGxlIDQzMjEiLCJlc0FkbWluaXN0cmFkb3IiOjF9LCJpYXQiOjE2MTE2MjI2MDd9.9FAYSYL32hhakM5uRzlpSyeQuFeqqlzQT468H_IMTOk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_usuario\": 3,\r\n    \"forma_pago\": \"Efectivo\",\r\n    \"total\": 2000,\r\n    \"productos\": [\r\n        {\r\n            \"id\" : 1,\r\n            \"precio\": 500,\r\n            \"cantidad\": 1\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"precio\": 1500,\r\n            \"cantidad\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener pedido por id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Im5vbWJyZV9hcGVsbGlkbyI6Ik5vbWJyZSBBcGVsbGlkbyB0ZXN0IiwiZW1haWwiOiJ0ZXN0QGVtYWlsLmNvbSIsImRpcmVjY2lvbl9lbnZpbyI6IkNhbGxlIDQzMjEiLCJlc0FkbWluaXN0cmFkb3IiOjF9LCJpYXQiOjE2MTE2MjI2MDd9.9FAYSYL32hhakM5uRzlpSyeQuFeqqlzQT468H_IMTOk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/pedidos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pedidos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar estado de un pedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Im5vbWJyZV9hcGVsbGlkbyI6Ik5vbWJyZSBBcGVsbGlkbyB0ZXN0IiwiZW1haWwiOiJ0ZXN0QGVtYWlsLmNvbSIsImRpcmVjY2lvbl9lbnZpbyI6IkNhbGxlIDQzMjEiLCJlc0FkbWluaXN0cmFkb3IiOjF9LCJpYXQiOjE2MTE2MjI2MDd9.9FAYSYL32hhakM5uRzlpSyeQuFeqqlzQT468H_IMTOk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estadoNuevo\": \"Entregado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pedidos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pedidos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
